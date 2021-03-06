@@ -95,7 +95,7 @@ function promise_handle_fetch_playlog(page){
 		res(output);
 	});
 }
-/*
+
 function promise_inject_resource(){
 	return new Promise(function(res,rej){
 		let s = document.createElement('script');
@@ -105,12 +105,15 @@ function promise_inject_resource(){
 		document.getElementsByTagName('head')[0].appendChild(s);
 	});
 }
-*/
+
 function promise_calculate_rating(arrs){
-	if(!arrs[0].internal_level_list()){
+	if(!internal_level_list){
 		console.log("internal level list is not loaded. QQ");
+		alert('internal level list is not loaded. QQ');
 		return;
 	}
+	
+	alert('calculate rating');
 }
 
 $(document).ready(()=>{
@@ -119,7 +122,7 @@ $(document).ready(()=>{
 	if(document.URL.indexOf("record/playlog") > -1)fetch_playlog();
 	if(document.URL.indexOf("home/") > -1){
 		Promise.all([
-			import('https://devildelta.github.io/maidx-analyzer/in_lv_superstar.js'),
+			promise_inject_resource(),
 			promise_fetch_expert().then(promise_handle_fetch_musicLevel),
 			promise_fetch_master().then(promise_handle_fetch_musicLevel),
 			promise_fetch_latest().then(promise_handle_fetch_playlog),

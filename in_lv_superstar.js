@@ -1,6 +1,6 @@
 // https://github.com/adzen/chu2view/blob/main/chu2.htm
 
-export function internal_level_list(){
+function internal_level_list(){
 	return [
 	  {title: "▲MEW▲△MEW△CAKE", BASIC: 0, ADVANCED: 0, EXPERT: 0, MASTER: 11.3},
 	  {title: "前前前世", BASIC: 0, ADVANCED: 0, EXPERT: 0, MASTER: 11.9},
